@@ -16,33 +16,35 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;=5 for greek
 ;;;;;;;;;;;;;;;;;;;;;;;;;;=6 for hawaii ;;;faulkes north
 ;;;;;;;;;;;;;;;;;;;;;;;;;;=7 for sliding spring observatory australia
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;=8  for callar alto
 
 
 ;;;;;;;;;;;;;;;;;
-teles=2
+teles=8
 
 
 
 ;;;;CHOOSE INITIAL DATE and DURATION of the observing window  in days
 
-inidate=2458151.99214 ;;;second of feb 2018
-dura=100
+inidate=2458300.50647 ;;;1 july 2018
+dura=200
 
 
 
 ;;;; Choose the file with planet data
-file='wasp_planet.list'
-
+;file='wasp_planet.list'
+file='kelt9.list'
 
 ;;;;;CHOOSE name of output files
 
-alltransits = 'transits_feb17.txt'
-fulltransits =  'transits_full_feb17.txt'
-fulltransitshour = 'transits_hour_feb17.txt'
+;alltransits = 'transits_feb17.txt'
+;fulltransits =  'transits_full_feb17.txt'
+;fulltransitshour = 'transits_hour_feb17.txt'
 
 
-
+alltransits = 'transits_kelt.txt'
+fulltransits =  'transits_full_kelt.txt'
+fulltransitshour = 'transits_hour_kelt.txt'
 
 
 
@@ -100,7 +102,11 @@ endif else begin
                       if teles eq 6 then  begin 
                          geocord=[19.8250, -155.46,4215]
                       endif else begin
-                         if teles eq 7 then  geocord=[-31.273333,149.06444 ,1165]
+                          if teles eq 7 then  begin 
+                             geocord=[-31.273333,149.06444 ,1165]
+                          endif else begin  
+                              if teles eq 8 then  geocord=[37.22361111111111, -2.546111111111111 ,2168]
+                          endelse
                       endelse
                     endelse
                 endelse
@@ -253,6 +259,14 @@ junk=index[order]
 ;; print,format='(A10,I6,"/",I2,"/",I4,I5,":",I2,I6,":",I2,I4,":",I2,F10.2,F10.2,F10.2,F10.2,F10.2 )', namelist[junk[i]],table[3,1,junk[i]], table[3,0,junk[i]], table[3,2,junk[i]],table[4,0,junk[i]], table[4,1,junk[i]],table[5,0,junk[i]], table[5,1,junk[i]],table[6,0,junk[i]], table[6,1,junk[i]], table[1,0,junk[i]], table[1,1,junk[i]], table[1,2,junk[i]], table[2,0,junk[i]], table[2,2,junk[i]]
 
 ;; endfor
+
+
+
+print ,'#   Object      DATE        T0    Observing Period  Alt_beg    Alt_To   Alt_end ' 
+for i=0, number-1 do begin
+    print, format='(A10,I6.2,"/",I2.2,"/",I4,I5.2,":",I2.2,I6.2,":",I2.2,I4.2,":",I2.2,F10.2,F10.2,F10.2)', namelist[junk[i]],table[3,1,junk[i]], table[3,0,junk[i]], table[3,2,junk[i]],table[4,0,junk[i]], table[4,1,junk[i]],table[5,0,junk[i]], table[5,1,junk[i]],table[6,0,junk[i]], table[6,1,junk[i]], table[1,0,junk[i]], table[1,1,junk[i]], table[1,2,junk[i]]
+ endfor
+
 
 
 openw,unit, alltransits ,/get_lun
