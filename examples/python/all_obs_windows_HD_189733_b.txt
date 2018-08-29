@@ -1,0 +1,101 @@
+#########
+Target = HD 189733 b
+Period = 2.2185752 d
+Eccentricity = 0.0
+omega = 90.0 deg
+Transit true anomaly = 0.0 deg
+Transit mean anomaly = 0.0
+Time of inferior conjunction= 2453955.520488219 JD_UTC
+Computed from: Transit time
+
+####
+Valid observing slots for Transit:
+transit duration = 1.80696 h
+min coverage required = 55.341568158675344 %
+
+cov =  88 %, dur = 1.6 h, 2018-09-19 21:58 -> 2018-09-19 23:33 [Chile/Continental]
+cov =  60 %, dur = 1.1 h, 2018-10-09 21:10 -> 2018-10-09 22:14 [Chile/Continental]
+cov =  90 %, dur = 1.6 h, 2019-05-04 05:08 -> 2019-05-04 06:46 [Chile/Continental]
+cov = 100 %, dur = 1.8 h, 2019-05-24 03:15 -> 2019-05-24 05:03 [Chile/Continental]
+cov = 100 %, dur = 1.8 h, 2019-06-13 02:27 -> 2019-06-13 04:16 [Chile/Continental]
+cov = 100 %, dur = 1.8 h, 2019-07-03 01:40 -> 2019-07-03 03:27 [Chile/Continental]
+cov =  86 %, dur = 1.6 h, 2019-07-23 00:53 -> 2019-07-23 02:26 [Chile/Continental]
+cov =  75 %, dur = 1.4 h, 2019-07-31 22:19 -> 2019-07-31 23:40 [Chile/Continental]
+cov =  57 %, dur = 1.0 h, 2019-08-12 01:06 -> 2019-08-12 02:07 [Chile/Continental]
+cov = 100 %, dur = 1.8 h, 2019-08-20 22:05 -> 2019-08-20 23:53 [Chile/Continental]
+cov = 100 %, dur = 1.8 h, 2019-09-09 21:17 -> 2019-09-09 23:06 [Chile/Continental]
+cov =  76 %, dur = 1.4 h, 2019-09-29 20:56 -> 2019-09-29 22:19 [Chile/Continental]
+
+####
+Valid observing slots for Occultation:
+occultation duration = 1.80696 h
+mean anomaly in eclipse = 0.5 in phase
+min coverage required = 55.341568158675344 %
+
+cov = 100 %, dur = 1.8 h, 2018-09-09 22:21 -> 2018-09-10 00:10 [Chile/Continental]
+cov =  73 %, dur = 1.3 h, 2018-09-29 21:34 -> 2018-09-29 22:53 [Chile/Continental]
+cov = 100 %, dur = 1.8 h, 2019-05-14 03:38 -> 2019-05-14 05:27 [Chile/Continental]
+cov = 100 %, dur = 1.8 h, 2019-06-03 02:51 -> 2019-06-03 04:39 [Chile/Continental]
+cov = 100 %, dur = 1.8 h, 2019-06-23 02:04 -> 2019-06-23 03:52 [Chile/Continental]
+cov = 100 %, dur = 1.8 h, 2019-07-13 01:17 -> 2019-07-13 03:05 [Chile/Continental]
+cov =  60 %, dur = 1.1 h, 2019-07-21 22:59 -> 2019-07-22 00:04 [Chile/Continental]
+cov =  72 %, dur = 1.3 h, 2019-08-02 00:29 -> 2019-08-02 01:46 [Chile/Continental]
+cov =  89 %, dur = 1.6 h, 2019-08-10 21:40 -> 2019-08-10 23:17 [Chile/Continental]
+cov = 100 %, dur = 1.8 h, 2019-08-30 21:41 -> 2019-08-30 23:29 [Chile/Continental]
+cov = 100 %, dur = 1.8 h, 2019-09-19 20:54 -> 2019-09-19 22:42 [Chile/Continental]
+
+####
+Valid observing slots for Before Occ:
+phi_start = 0.375, phi_end = 0.4583333333333333
+duration of the period before occultation= 4.437150399999999 h
+min coverage required = 22.536986801258756 %
+
+cov =  63 %, dur = 2.8 h, 2018-08-31 21:16 -> 2018-09-01 00:03 [Chile/Continental]
+cov =  50 %, dur = 2.2 h, 2018-09-11 21:51 -> 2018-09-12 00:04 [Chile/Continental]
+cov =  54 %, dur = 2.4 h, 2018-09-20 20:52 -> 2018-09-20 23:16 [Chile/Continental]
+cov =  39 %, dur = 1.7 h, 2018-10-01 21:04 -> 2018-10-01 22:45 [Chile/Continental]
+cov =  26 %, dur = 1.1 h, 2018-10-10 21:04 -> 2018-10-10 22:10 [Chile/Continental]
+cov =  24 %, dur = 1.1 h, 2019-04-26 05:40 -> 2019-04-26 06:42 [Chile/Continental]
+cov =  29 %, dur = 1.3 h, 2019-05-05 05:06 -> 2019-05-05 06:20 [Chile/Continental]
+cov =  56 %, dur = 2.5 h, 2019-05-16 03:21 -> 2019-05-16 05:50 [Chile/Continental]
+cov =  41 %, dur = 1.8 h, 2019-05-25 02:47 -> 2019-05-25 04:33 [Chile/Continental]
+cov =  73 %, dur = 3.3 h, 2019-06-05 02:21 -> 2019-06-05 05:35 [Chile/Continental]
+cov =  52 %, dur = 2.3 h, 2019-06-14 01:27 -> 2019-06-14 03:46 [Chile/Continental]
+cov =  61 %, dur = 2.7 h, 2019-06-25 01:33 -> 2019-06-25 04:16 [Chile/Continental]
+cov =  63 %, dur = 2.8 h, 2019-07-04 00:11 -> 2019-07-04 02:59 [Chile/Continental]
+cov =  50 %, dur = 2.2 h, 2019-07-15 00:46 -> 2019-07-15 02:57 [Chile/Continental]
+cov =  75 %, dur = 3.3 h, 2019-07-23 22:52 -> 2019-07-24 02:11 [Chile/Continental]
+cov =  38 %, dur = 1.7 h, 2019-08-03 23:59 -> 2019-08-04 01:37 [Chile/Continental]
+cov =  79 %, dur = 3.5 h, 2019-08-12 22:32 -> 2019-08-13 02:03 [Chile/Continental]
+cov =  33 %, dur = 1.4 h, 2019-08-21 21:58 -> 2019-08-21 23:23 [Chile/Continental]
+cov =  26 %, dur = 1.1 h, 2019-08-24 00:12 -> 2019-08-24 01:18 [Chile/Continental]
+cov =  79 %, dur = 3.5 h, 2019-09-01 21:13 -> 2019-09-02 00:44 [Chile/Continental]
+cov =  40 %, dur = 1.8 h, 2019-09-10 20:49 -> 2019-09-10 22:33 [Chile/Continental]
+cov =  57 %, dur = 2.5 h, 2019-09-21 20:53 -> 2019-09-21 23:24 [Chile/Continental]
+
+####
+Valid observing slots for After Occ:
+phi_start = 0.5416666666666666, phi_end = 0.625
+duration of the period before occultation= 4.437150400000002 h
+min coverage required = 22.53698680125874 %
+
+cov =  79 %, dur = 3.5 h, 2018-09-07 20:48 -> 2018-09-08 00:19 [Chile/Continental]
+cov =  27 %, dur = 1.2 h, 2018-09-18 22:28 -> 2018-09-18 23:37 [Chile/Continental]
+cov =  47 %, dur = 2.1 h, 2018-09-27 20:57 -> 2018-09-27 23:00 [Chile/Continental]
+cov =  28 %, dur = 1.2 h, 2019-05-03 05:32 -> 2019-05-03 06:44 [Chile/Continental]
+cov =  50 %, dur = 2.2 h, 2019-05-12 03:39 -> 2019-05-12 05:49 [Chile/Continental]
+cov =  49 %, dur = 2.2 h, 2019-05-23 03:45 -> 2019-05-23 05:52 [Chile/Continental]
+cov =  64 %, dur = 2.9 h, 2019-06-01 02:19 -> 2019-06-01 05:10 [Chile/Continental]
+cov =  49 %, dur = 2.2 h, 2019-06-12 02:57 -> 2019-06-12 05:05 [Chile/Continental]
+cov =  76 %, dur = 3.4 h, 2019-06-21 01:00 -> 2019-06-21 04:23 [Chile/Continental]
+cov =  38 %, dur = 1.7 h, 2019-07-02 02:10 -> 2019-07-02 03:49 [Chile/Continental]
+cov =  79 %, dur = 3.5 h, 2019-07-10 23:41 -> 2019-07-11 03:11 [Chile/Continental]
+cov =  34 %, dur = 1.5 h, 2019-07-19 23:06 -> 2019-07-20 00:34 [Chile/Continental]
+cov =  26 %, dur = 1.1 h, 2019-07-22 01:23 -> 2019-07-22 02:29 [Chile/Continental]
+cov =  79 %, dur = 3.5 h, 2019-07-30 22:24 -> 2019-07-31 01:55 [Chile/Continental]
+cov =  46 %, dur = 2.0 h, 2019-08-08 21:47 -> 2019-08-08 23:47 [Chile/Continental]
+cov =  68 %, dur = 3.0 h, 2019-08-19 22:35 -> 2019-08-20 01:36 [Chile/Continental]
+cov =  56 %, dur = 2.5 h, 2019-08-28 21:31 -> 2019-08-29 00:00 [Chile/Continental]
+cov =  56 %, dur = 2.5 h, 2019-09-08 21:47 -> 2019-09-09 00:16 [Chile/Continental]
+cov =  53 %, dur = 2.4 h, 2019-09-17 20:51 -> 2019-09-17 23:13 [Chile/Continental]
+cov =  45 %, dur = 2.0 h, 2019-09-28 21:00 -> 2019-09-28 22:57 [Chile/Continental]
