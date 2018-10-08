@@ -261,9 +261,13 @@ junk=index[order]
 ;; endfor
 
 
+print,'#   Object      DATE        T0    Observing Period  Alt_beg    Alt_To   Alt_end ' 
+for i=0, number-1 do begin
+    print, format='(A10,I6.2,"/",I2.2,"/",I4,I5.2,":",I2.2,I6.2,":",I2.2,I4.2,":",I2.2,F10.2,F10.2,F10.2)', namelist[junk[i]],table[3,1,junk[i]], table[3,0,junk[i]], table[3,2,junk[i]],table[4,0,junk[i]], table[4,1,junk[i]],table[5,0,junk[i]], table[5,1,junk[i]],table[6,0,junk[i]], table[6,1,junk[i]], table[1,0,junk[i]], table[1,1,junk[i]], table[1,2,junk[i]]
+endfor
 
 
-
+stop
 openw,unit, alltransits ,/get_lun
 
 printf,unit,'#   Object      DATE        T0    Observing Period  Alt_beg    Alt_To   Alt_end ' 
