@@ -56,6 +56,9 @@ def transit_LT(tref, per, coords, phi_start, phi_end, t_start, t_stop, observato
         logger.debug("Last t_ref occurence before the beginning of the observing run: {}".format(tref_start))
     #### Compute number of orbital period until the last transit before the end of the observing period
     nper_obs = int(floor((t_stop - tref_start) / per))
+    if nper_obs == 0:
+        logger.warning("There is no orbital phase slot ({}, {}) between {} and {}! Return empty lists")
+        return [], [], []
     if verbose:
         logger.debug("Number of orbital period until the last transit before the end of the observing period: {}".format(nper_obs))
     #### Ensure that the orbital phase range is continuous (phi_end = 1 + phi_end if needed)
