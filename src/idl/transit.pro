@@ -6,6 +6,9 @@
 ;;name ra dec TO(days) Period(days) width(minuts)
 
 
+;;;;;CHOOSE path of the input and output files
+
+path = '../../examples/idl/'
 
 ;;;;CHOOSE TELESCOPE
 ;;teles the telescope used =0 for WHT 
@@ -33,7 +36,7 @@ dura=200
 
 ;;;; Choose the file with planet data
 ;file='wasp_planet.list'
-file='kelt9.list'
+file=path+'kelt9.list'
 
 ;;;;;CHOOSE name of output files
 
@@ -42,9 +45,12 @@ file='kelt9.list'
 ;fulltransitshour = 'transits_hour_feb17.txt'
 
 
-alltransits = 'transits_kelt.txt'
-fulltransits =  'transits_full_kelt.txt'
-fulltransitshour = 'transits_hour_kelt.txt'
+alltransits = path+'transits_kelt.txt'
+fulltransits =  path+'transits_full_kelt.txt'
+fulltransitshour = path+'transits_hour_kelt.txt'
+
+
+
 
 
 
