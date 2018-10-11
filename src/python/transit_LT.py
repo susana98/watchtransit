@@ -31,7 +31,7 @@ def transit_LT(tref, per, coords, phi_start, phi_end, t_start, t_stop, observato
     :param float phi_start: Begin of the mean orbital phase range of interest (between 0 and 1). The mean orbital phase is defined using the mean anomaly M, phi = M/(2.Pi). So be careful with eccentric orbits.
     :param float phi_end: End of the mean orbital phase range of interest (between 0 and 1). The mean orbital phase is defined using the mean anomaly M, phi = M/(2.Pi). So be careful with eccentric orbits.
     :param float t_start: Beginning of the observing period in days (reference frame has to be consistent between T0, t_start and t_end)
-    :param float t_end: End of the observing period in days (reference frame has to be consistent between T0, t_start and t_end)
+    :param float t_stop: End of the observing period in days (reference frame has to be consistent between T0, t_start and t_end)
     :param string observatory: A string identifying the observatory. Default is HS for Hamburger Sternwarte. If given, the observer's longitude, latitude, and altitude are set automatically (and must not be given separately then)
     :param float lat: Latitude of the observatory in degrees. Specify South Latitude with a negative sign. Default is the latitude of the Hamburger Sternwarte.
     :param float long: Longitude of the observatory in degrees. Specify West longitude with a negative sign. Default is the longitude of the Hamburger Sternwarte.
@@ -57,7 +57,8 @@ def transit_LT(tref, per, coords, phi_start, phi_end, t_start, t_stop, observato
     #### Compute number of orbital period until the last transit before the end of the observing period
     nper_obs = int(floor((t_stop - tref_start) / per))
     if nper_obs == 0:
-        logger.warning("There is no orbital phase slot ({}, {}) between {} and {}! Return empty lists")
+        logger.warning("There is no orbital phase slot ({}, {}) between {} and {}! Return empty lists"
+                       "".format(phi_start, phi_end, t_start, t_stop))
         return [], [], []
     if verbose:
         logger.debug("Number of orbital period until the last transit before the end of the observing period: {}".format(nper_obs))
