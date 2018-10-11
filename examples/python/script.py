@@ -50,6 +50,8 @@ if __name__ == "__main__":
 
     # Definition of the list of planets for which you want to compute the observing windows
     pl_list = ['HD 209458 b']
+    observatory = "esoparanal"
+    verbose = False
 
     # Specify the properties of the planets:
     dico_properties = {}
@@ -211,10 +213,13 @@ if __name__ == "__main__":
             print("Sampling time = {} min".format(dico_properties[plnt][key]["t_samp"]))
             (jds_valid_start,
              jds_valid_end,
-             covs) = transit_LT.transit_LT(dico_properties[plnt]["t0"], dico_properties[plnt]["pl_per"].to(u.d).value, target.coord, dico_properties[plnt][key]["phi_start"], dico_properties[plnt][key]["phi_end"], t_start, t_end, observatory="esoparanal", lon=None, lat=None, alt=None,
-                                           alt_min=alt_min, tsamp=dico_properties[plnt][key]["t_samp"], cov_min=dico_properties[plnt][key]["cov"], twilight=twilight,
+             covs) = transit_LT.transit_LT(dico_properties[plnt]["t0"], dico_properties[plnt]["pl_per"].to(u.d).value,
+                                           target.coord, dico_properties[plnt][key]["phi_start"], dico_properties[plnt][key]["phi_end"],
+                                           t_start, t_end, observatory=observatory, lon=None, lat=None, alt=None,
+                                           alt_min=alt_min, tsamp=dico_properties[plnt][key]["t_samp"],
+                                           cov_min=dico_properties[plnt][key]["cov"], twilight=twilight,
                                            precess=True, nutate=True, aberration=True, refract=True,
-                                           verbose=0, plot=plot, ax=ax)
+                                           verbose=verbose, plot=plot, ax=ax)
             isotime_valid_start = [Time(x, format="jd", scale="utc").to_datetime(timezone=tz).strftime("%Y-%m-%d %H:%M") for x in jds_valid_start]
             isotime_valid_end = [Time(x, format="jd", scale="utc").to_datetime(timezone=tz).strftime("%Y-%m-%d %H:%M") for x in jds_valid_end]
             # isotime_valid_start = [Time(x, format= "jd", scale="utc").jd for x in jds_valid_start]

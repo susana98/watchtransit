@@ -13,7 +13,7 @@ import pytz
 tz = pytz.timezone("utc")
 # tz = pytz.timezone("Chile/Continental")
 
-#from astropy.coordinates import SkyCoord
+# from astropy.coordinates import SkyCoord
 
 logger = logging.getLogger()
 
@@ -77,12 +77,12 @@ def transit_LT(tref, per, coords, phi_start, phi_end, t_start, t_stop, observato
     # Compute the Julian dates vector containing the julian dates of the 15 min samplings of all the orbital phase ranges one after the other.
     if verbose:
         logger.debug("Sampling time of the orbital phase periods: {} min".format(tsamp))
-    jds = [arange(t_phirange[ii, 0], t_phirange[ii, 1], tsamp/60./24., dtype=float) for ii in range(nper_obs)]
-    l_idx_size_range = [jd.size for jd in jds]
+    jds = [arange(t_phirange[ii, 0], t_phirange[ii, 1], tsamp / 60. / 24., dtype=float) for ii in range(nper_obs)]
+    l_idx_size_range = [int(jd.size) for jd in jds]
 
     jds = concatenate(jds, axis=0)
     l_idx_range_start = cumsum([0] + l_idx_size_range[:-1])
-    l_idx_range_stop = concatenate((cumsum(l_idx_size_range[:-1]), [jds.size]), axis=0)
+    l_idx_range_stop = concatenate((cumsum(l_idx_size_range[:-1], dtype=int), [int(jds.size)]), axis=0)
     if verbose:
         logger.debug("Size of the concatenated list of times to evaluate:{}\n".format(len(jds)))
         logger.debug("Description of each orbital phase range:")
@@ -94,7 +94,7 @@ def transit_LT(tref, per, coords, phi_start, phi_end, t_start, t_stop, observato
         logger.debug("Target Altitude, Azimuth, hourangle computed !")
         logger.debug("Target Altitude: {}".format(alts))
     #### For each phase range get the local horizon coords (alt-az) of the Sun with the same 15 min sampling
-    sun_coords = get_sun(Time(jds, format= "jd", scale="utc"))
+    sun_coords = get_sun(Time(jds, format="jd", scale="utc"))
     # ra_sun = []
     # dec_sun = []
     # for ii in range(nper_obs):
@@ -145,7 +145,7 @@ def transit_LT(tref, per, coords, phi_start, phi_end, t_start, t_stop, observato
         ax_up.set_xticks(arange(ceil(t_start), floor(t_stop), step=1), minor=True)
         ax_up.set_xticks(arange(ceil(t_start), floor(t_stop), step=10))
         xuptpos = ax_up.get_xticks()
-        ax_up.set_xticklabels(map(lambda x: "{}".format(Time(x, format= "jd", scale="utc").to_datetime(timezone=tz).strftime("%Y-%m-%d %H:%M")), xuptpos), rotation="vertical")
+        ax_up.set_xticklabels(map(lambda x: "{}".format(Time(x, format="jd", scale="utc").to_datetime(timezone=tz).strftime("%Y-%m-%d %H:%M")), xuptpos), rotation="vertical")
         ymin = 0
         ymax = 5.5
         ax.set_ylim(ymin, ymax)
@@ -157,8 +157,8 @@ def transit_LT(tref, per, coords, phi_start, phi_end, t_start, t_stop, observato
         jd_timeoffset = 2400000
         ax.set_xticklabels(map(lambda x: "{:.0f}".format(x), xtpos - jd_timeoffset), rotation="vertical")
         ax.set_xlabel("time [JD-{:d}]".format(jd_timeoffset))
-        pl.vlines(x=t_phirange[:,0], ymin=ymin, ymax=ymax, color='k', linestyles='dashed', linewidth=0.5)
-        pl.vlines(x=t_phirange[:,1], ymin=ymin, ymax=ymax, color='k', linestyles='dashed',linewidth=0.5)
+        pl.vlines(x=t_phirange[:, 0], ymin=ymin, ymax=ymax, color='k', linestyles='dashed', linewidth=0.5)
+        pl.vlines(x=t_phirange[:, 1], ymin=ymin, ymax=ymax, color='k', linestyles='dashed', linewidth=0.5)
         boxes_OrbPhase = []
         boxes_darkness = []
         boxes_alt = []
@@ -174,14 +174,14 @@ def transit_LT(tref, per, coords, phi_start, phi_end, t_start, t_stop, observato
             jds_valid_start.append(jds_valids.min())
             jds_valid_end.append(jds_valids.max())
         if plot:
-            boxes_OrbPhase.append(Rectangle((t_phirange[ii, 0], 0), t_phirange[ii, 1] - t_phirange[ii, 0], 1))
+            boxes_OrbPhase.append(Rectangle((t_phirange[ii, 0], 0), t_phirange[ii, 1] - t_phirange[ii, 0], 1))  # Orbital Phases goes from 0 to 1 in y
             for jd, dark, alt, val in zip(jds[l_idx_range_start[ii]:l_idx_range_stop[ii]], darkness_cond[l_idx_range_start[ii]:l_idx_range_stop[ii]], alt_cond[l_idx_range_start[ii]:l_idx_range_stop[ii]], valid_cond_ii):
                 if dark:
-                    boxes_darkness.append(Rectangle((jd - tsamp/2/60/24, 1.5), tsamp/60/24, 1))
+                    boxes_darkness.append(Rectangle((jd - tsamp / 2 / 60 / 24, 1.5), tsamp / 60 / 24, 1))  # Darkness goes from 1.5 to 2.5 in y
                 if alt:
-                    boxes_alt.append(Rectangle((jd - tsamp/2/60/24, 3), tsamp/60/24, 1))
+                    boxes_alt.append(Rectangle((jd - tsamp / 2 / 60 / 24, 3), tsamp / 60 / 24, 1))  # Altitude goes from 3 to 4 in y
                 if val:
-                    boxes_valid.append(Rectangle((jd - tsamp/2/60/24, 4.5), tsamp/60/24, 1))
+                    boxes_valid.append(Rectangle((jd - tsamp / 2 / 60 / 24, 4.5), tsamp / 60 / 24, 1))  # Total goes from 4.5 to 5.5 in y
     if plot:
         pc_OrbPhase = PatchCollection(boxes_OrbPhase, facecolor="C1", alpha=1, edgecolor="C1")
         pc_Dark = PatchCollection(boxes_darkness, facecolor="C0", alpha=1, edgecolor="C0")
@@ -190,6 +190,9 @@ def transit_LT(tref, per, coords, phi_start, phi_end, t_start, t_stop, observato
         ax.add_collection(pc_OrbPhase)
         ax.add_collection(pc_Dark)
         ax.add_collection(pc_Alt)
+        ax.plot(jds, (alts / 90) + 3)
+        xmin, xmax = ax.get_xlim()
+        ax.hlines((30 / 90) + 3, xmin, xmax, linestyles="dashed")
         ax.add_collection(pc_Val)
         pl.tight_layout()
     return jds_valid_start, jds_valid_end, covs
